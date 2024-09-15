@@ -41,10 +41,8 @@ The project demonstrates key principles of chaos theory:
 
 1. Install required packages:
 pip install numpy matplotlib scipy
-Copy
 2. Run the script:
 python chaotic_oscillator.py
-Copy
 3. The script generates:
 - A WAV file with a unique chaotic melody
 - A PNG file visualizing the logistic map and chaotic sequence
