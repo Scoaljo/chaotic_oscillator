@@ -10,7 +10,7 @@ def logistic_map(r, x, n):
     return np.array(sequence)
 
 # parameters
-duration = 5  # seconds
+duration = 20  # seconds
 sample_rate = 44100
 r = 3.99  # chaos parameter
 x0 = 0.5 + np.random.uniform(-0.1, 0.1)
