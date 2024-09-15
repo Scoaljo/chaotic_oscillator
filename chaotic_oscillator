@@ -9,40 +9,45 @@ def logistic_map(r, x, n):
         sequence.append(x)
     return np.array(sequence)
 
-# parameters
+# set parameters
 duration = 20  # seconds
 sample_rate = 44100
 r = 3.99  # chaos parameter
-x0 = 0.5 + np.random.uniform(-0.1, 0.1)
+x0 = 0.5 + np.random.uniform(-0.1, 0.1)  # random initial condition
 print(f"Initial value x0 = {x0}")
 
 # generate chaotic sequence
-n_points = 100  
+n_points = int(duration * 20)  # 20 tones per second
 chaotic_seq = logistic_map(r, x0, n_points)
 
-# generate audio
+# audio generation
 def generate_tone(freq, duration, sample_rate):
     t = np.linspace(0, duration, int(sample_rate * duration), False)
     return np.sin(2 * np.pi * freq * t)
 
 audio = np.array([])
+tone_duration = 0.05  # 50 ms per tone
 for value in chaotic_seq:
-    freq = 200 + 1000 * value  
-    tone_duration = 0.05
+    freq = 200 + 1000 * value  # map to frequency range 200-1200 Hz
     tone = generate_tone(freq, tone_duration, sample_rate)
     audio = np.concatenate((audio, tone))
 
+# ensure the audio length matches the desired duration
+target_samples = int(duration * sample_rate)
+if len(audio) < target_samples:
+    audio = np.pad(audio, (0, target_samples - len(audio)), 'constant')
+elif len(audio) > target_samples:
+    audio = audio[:target_samples]
 
-audio = np.pad(audio, (0, sample_rate), 'constant')
-
-# normalize and convert to 16-bit pulse control modulation
+# normalize and convert to 16-bit pulse-code modulation
 audio = audio / np.max(np.abs(audio))
 audio = (audio * 32767).astype(np.int16)
 
-# save audio with unique filename
+# save audio with a unique filename
 filename = f'chaotic_melody_{x0:.4f}.wav'
 wavfile.write(filename, sample_rate, audio)
 print(f"Chaotic melody generated and saved as '{filename}'")
+print(f"Audio duration: {len(audio) / sample_rate:.2f} seconds")
 
 # visualization
 plt.figure(figsize=(12, 8))
