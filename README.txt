@@ -8,34 +8,34 @@ The goal of this project is to create an audible representation of chaos theory 
 
 ## Key Features
 
-* Generation of unique chaotic sequences
-* Conversion of chaotic sequences into audible melodies
-* Visualization of the logistic map and chaotic sequence
-* Unique file naming for each run's outputs
+- Generation of unique chaotic sequences
+- Conversion of chaotic sequences into audible melodies
+- Visualization of the logistic map and chaotic sequence
+- Unique file naming for each run's outputs
 
 ## Experiments
 
 The project allows for various experiments by modifying key parameters:
 
-* **Initial Condition**: Each run uses a different random initial value (x0).
-* **Frequency Mapping**: The chaotic sequence is mapped to a range of frequencies.
-* **Tone Duration**: Each value in the sequence is converted to a short tone.
-* **Visualization**: The logistic map and chaotic sequence are plotted for each run.
+- **Initial Condition**: Each run uses a different random initial value (x0).
+- **Frequency Mapping**: The chaotic sequence is mapped to a range of frequencies.
+- **Tone Duration**: Each value in the sequence is converted to a short tone.
+- **Visualization**: The logistic map and chaotic sequence are plotted for each run.
 
 ## Results
 
 The project demonstrates key principles of chaos theory:
 
-* Small changes in initial conditions lead to significantly different melodies.
-* The visualizations show the unpredictable nature of the chaotic sequence.
-* Each run produces a unique auditory and visual representation of chaos.
+- Small changes in initial conditions lead to significantly different melodies.
+- The visualizations show the unpredictable nature of the chaotic sequence.
+- Each run produces a unique auditory and visual representation of chaos.
 
 ## Technologies Used
 
-* Python
-* NumPy
-* Matplotlib
-* SciPy
+- Python
+- NumPy
+- Matplotlib
+- SciPy
 
 ## Usage
 
